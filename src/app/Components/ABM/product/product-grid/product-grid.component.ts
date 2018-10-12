@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-grid',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductGridComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['Id', 'Accion'];
+  public dataSource =[];
+
+  
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+
+  newProduct(){
+    this.router.navigate(['/Product/ABM/A/-1']);
+  } 
 }

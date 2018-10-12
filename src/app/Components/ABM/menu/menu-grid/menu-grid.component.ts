@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-grid',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuGridComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['Id', 'Accion'];
+  public dataSource =[];
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  newMenu() {
+    this.router.navigate(['/Menu/ABM/A/-1']);
+  }
 }

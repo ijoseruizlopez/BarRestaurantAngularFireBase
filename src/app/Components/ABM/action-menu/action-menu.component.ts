@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-action-menu',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActionMenuComponent implements OnInit {
 
-  constructor() { }
+  @Input() urlRedirect:string;
+  @Input() parametros:string[];
+  
+  constructor(private router: Router) { 
+
+  }
 
   ngOnInit() {
   }
 
+  redirect(action:string){
+
+    this.urlRedirect+="/"+action
+
+    this.parametros.forEach(element => {
+      this.urlRedirect+="/"
+      this.urlRedirect += element;
+    });
+
+    this.router.navigate(['/'+ this.urlRedirect]);
+  } 
 }

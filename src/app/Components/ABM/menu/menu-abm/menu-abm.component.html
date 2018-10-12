@@ -1,3 +1,68 @@
-<p>
-  menu-abm works!
-</p>
+<div class="DivCenter">
+    <form [formGroup]="menuForm">
+  
+        <div class="panel-heading">
+            <strong>ABM Carta</strong>
+        </div>
+  
+        <fieldset [disabled]="!editable">
+            <div class="tabs white nomargin-top">
+                <div class="tab-content">
+                    <div id="Principal" class="tab-pane active">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+  
+                                <div class="row">
+                                    <div class="col-md-6 form-group fancy-form2">
+                                        <mat-form-field class="example-full-width">
+                                            <input formControlName="Carta" name="Carta" matInput placeholder="Carta">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <p>
+                                    <i>(*) - Campos requeridos</i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+            <div class="panel panel-default" *ngIf="editable">
+  
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 form-group">
+                            <button type="button" mat-raised-button color="primary" (click)="Save()">Guardar</button>
+                        </div>
+  
+                        <div class="col-sm-6 col-md-6 form-group">
+                            <button type="button" mat-raised-button color="warn" (click)="Cancel()">cancelar</button>
+                        </div>
+                    </div>
+  
+                </div>
+            </div>
+        </fieldset>
+    </form>
+  
+    <div class="panel panel-default" *ngIf="actionComplete">
+        <div class="alert alert-success" role="alert">
+            La acción fue completada
+        </div>
+    </div>
+  
+    <div class="panel panel-default" *ngIf="!editable">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 form-group">
+                    <button type="button" mat-raised-button color="warn" (click)="Delete()" *ngIf="action=='B' && !actionComplete">Eliminar</button>
+                </div>
+                <div class="col-sm-6 col-md-6 form-group">
+                    <button type="button" mat-raised-button color="warn" (click)="Cancel()">Regresar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

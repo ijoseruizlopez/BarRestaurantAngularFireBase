@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 //Modulos para angular material
 import {MaterialModule} from './material'; //Creamos nuestro propio modulo para no sobrecargar el app.Module, ahi cargamos los componentes que vamos a suar
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -24,9 +24,19 @@ import { ProductGridComponent } from './Components/ABM/product/product-grid/prod
 import { HeaderComponent } from './Components/Common/header/header.component';
 import { MenuComponent } from './Components/Common/menu/menu.component';
 import { ActionMenuComponent } from './Components/ABM/action-menu/action-menu.component';
+import { CarouselComponent } from './Components/Common/carousel/carousel.component';
+import { PayBoardComponent } from './Components/Boards/pay-board/pay-board.component';
+import { WaiterBoardComponent } from './Components/Boards/waiter-board/waiter-board.component';
+import { KitchenBoardComponent } from './Components/Boards/kitchen-board/kitchen-board.component';
 
 const routes: Route[]=[
-  //{path:'ABM/:Action/:Id' , component:UserComponent}
+  {path:'Menu/ABM/:Action/:Id' , component:MenuABMComponent},
+  {path:'Product/ABM/:Action/:Id', component: ProductABMComponent},
+  {path:'Menu/List' , component:MenuGridComponent},
+  {path:'Products/List', component:ProductGridComponent},
+  {path:'Board/Kitchen' , component:KitchenBoardComponent},
+  {path:'Board/Waiter' , component:WaiterBoardComponent},
+  {path:'Board/Pay' , component:PayBoardComponent}
 ];
 
 @NgModule({
@@ -38,7 +48,11 @@ const routes: Route[]=[
     ProductGridComponent,
     HeaderComponent,
     MenuComponent,
-    ActionMenuComponent
+    ActionMenuComponent,
+    CarouselComponent,
+    PayBoardComponent,
+    WaiterBoardComponent,
+    KitchenBoardComponent, 
   ],
   imports: [
     BrowserModule,
