@@ -17,6 +17,13 @@ import { FormsModule, FormControlDirective, FormGroupDirective, ReactiveFormsMod
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { MenuABMComponent } from './Components/ABM/menu/menu-abm/menu-abm.component';
+import { MenuGridComponent } from './Components/ABM/menu/menu-grid/menu-grid.component';
+import { ProductABMComponent } from './Components/ABM/product/product-abm/product-abm.component';
+import { ProductGridComponent } from './Components/ABM/product/product-grid/product-grid.component';
+import { HeaderComponent } from './Components/Common/header/header.component';
+import { MenuComponent } from './Components/Common/menu/menu.component';
+import { ActionMenuComponent } from './Components/ABM/action-menu/action-menu.component';
 
 const routes: Route[]=[
   //{path:'ABM/:Action/:Id' , component:UserComponent}
@@ -24,7 +31,14 @@ const routes: Route[]=[
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuABMComponent,
+    MenuGridComponent,
+    ProductABMComponent,
+    ProductGridComponent,
+    HeaderComponent,
+    MenuComponent,
+    ActionMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +46,7 @@ const routes: Route[]=[
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    //RouterModule.forRoot(routes), //Importamos las rutas navegables
+    RouterModule.forRoot(routes), //Importamos las rutas navegables
     AngularFireModule.initializeApp(environment.firebase)
   ],
   exports : [ReactiveFormsModule],
