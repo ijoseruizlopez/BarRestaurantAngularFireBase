@@ -8,6 +8,14 @@
 .DivCenter{
     float: none;
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
+    height: 100%;
     padding-top: 2%;
+    padding-left: 10%;
+    background-color:gainsboro;
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+  }

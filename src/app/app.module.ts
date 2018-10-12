@@ -28,6 +28,10 @@ import { CarouselComponent } from './Components/Common/carousel/carousel.compone
 import { PayBoardComponent } from './Components/Boards/pay-board/pay-board.component';
 import { WaiterBoardComponent } from './Components/Boards/waiter-board/waiter-board.component';
 import { KitchenBoardComponent } from './Components/Boards/kitchen-board/kitchen-board.component';
+import { WaiterOrdersComponent } from './Components/Tasks/waiter/waiter-orders/waiter-orders.component';
+
+import { WaiterOrdersToCollectComponent } from './Components/Tasks/waiter/waiter-orders-to-collect/waiter-orders-to-collect.component';
+import { WaiterMainComponent } from './Components/Tasks/waiter/waiter-main/waiter-main.component';
 
 const routes: Route[]=[
   {path:'Menu/ABM/:Action/:Id' , component:MenuABMComponent},
@@ -35,7 +39,7 @@ const routes: Route[]=[
   {path:'Menu/List' , component:MenuGridComponent},
   {path:'Products/List', component:ProductGridComponent},
   {path:'Board/Kitchen' , component:KitchenBoardComponent},
-  {path:'Board/Waiter' , component:WaiterBoardComponent},
+  {path:'Board/Waiter' , component:WaiterMainComponent},
   {path:'Board/Pay' , component:PayBoardComponent}
 ];
 
@@ -52,7 +56,10 @@ const routes: Route[]=[
     CarouselComponent,
     PayBoardComponent,
     WaiterBoardComponent,
-    KitchenBoardComponent, 
+    KitchenBoardComponent,
+    WaiterOrdersComponent,
+    WaiterOrdersToCollectComponent, 
+    WaiterMainComponent 
   ],
   imports: [
     BrowserModule,
