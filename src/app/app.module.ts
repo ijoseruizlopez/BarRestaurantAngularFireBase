@@ -32,10 +32,14 @@ import { WaiterOrdersComponent } from './Components/Tasks/waiter/waiter-orders/w
 
 import { WaiterOrdersToCollectComponent } from './Components/Tasks/waiter/waiter-orders-to-collect/waiter-orders-to-collect.component';
 import { WaiterMainComponent } from './Components/Tasks/waiter/waiter-main/waiter-main.component';
+import { TableAbmComponent } from './Components/ABM/table/table-abm/table-abm.component';
+import { TableGridComponent } from './Components/ABM/table/table-grid/table-grid.component';
 
 const routes: Route[]=[
   {path:'Menu/ABM/:Action/:Id' , component:MenuABMComponent},
   {path:'Product/ABM/:Action/:Id', component: ProductABMComponent},
+  {path:'Table/ABM/:Action/:Id' , component:TableAbmComponent},
+  {path:'Table/List' , component:TableGridComponent},
   {path:'Menu/List' , component:MenuGridComponent},
   {path:'Products/List', component:ProductGridComponent},
   {path:'Board/Kitchen' , component:KitchenBoardComponent},
@@ -59,7 +63,7 @@ const routes: Route[]=[
     KitchenBoardComponent,
     WaiterOrdersComponent,
     WaiterOrdersToCollectComponent, 
-    WaiterMainComponent 
+    WaiterMainComponent, TableAbmComponent, TableGridComponent 
   ],
   imports: [
     BrowserModule,
