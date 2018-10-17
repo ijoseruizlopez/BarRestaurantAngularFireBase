@@ -22,3 +22,12 @@
     text-align: left; 
     color:red;
 }
+table{
+    width: 100%; 
+}
+
+.mat-header-cell  {
+    background-color:#cce0ff; 
+    font-size:14px;
+    font-weight: bold;
+}

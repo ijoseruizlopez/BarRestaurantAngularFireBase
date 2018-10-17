@@ -6,22 +6,22 @@
     </div>
 
     <div>
-        <table mat-table [dataSource]="dataSource" class="center">
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
             <ng-container matColumnDef="Icon">
-                <th mat-header-cell *matHeaderCellDef style="width: 500px"></th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
                 <td mat-cell *matCellDef="let table">
                     <mat-icon class="example-icon">label</mat-icon>
                 </td>
             </ng-container>
 
-            <ng-container matColumnDef="Numero" sticky>
+            <ng-container matColumnDef="Numero" mat-sort-header>
                 <th mat-header-cell *matHeaderCellDef>Numero de Mesa</th>
                 <td mat-cell *matCellDef="let table"> {{table.Numero}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="Accion">
-                <th mat-header-cell *matHeaderCellDef></th>
+            <ng-container matColumnDef="Accion" >
+                <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
                 <td mat-cell *matCellDef="let table">
                     <app-action-menu [urlRedirect]="'Table/ABM'" [parametros]="[table.Id]"></app-action-menu>
                 </td>
@@ -34,7 +34,7 @@
         <br>
         <div>
             <div class="row">
-                <div class="col-sm-12 col-md-12 form-group">
+                <div class="col-sm-12 col-md-12 form-group" style="text-align: right;">
                     <button type="button" mat-raised-button color="primary" (click)="newTable()">Nueva Mesa</button>
                 </div>
             </div>

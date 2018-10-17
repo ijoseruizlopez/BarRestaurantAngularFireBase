@@ -6,38 +6,38 @@
     </div>
 
     <div>
-        <table mat-table [dataSource]="dataSource">
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
             <ng-container matColumnDef="Icon">
-                <th mat-header-cell *matHeaderCellDef style="width: 10%"></th>
+                <th mat-header-cell *matHeaderCellDef></th>
                 <td mat-cell *matCellDef="let table">
                     <mat-icon class="example-icon">fastfood</mat-icon>
                 </td>
             </ng-container>
 
-            <ng-container matColumnDef="Nombre" sticky>
-                    <th mat-header-cell *matHeaderCellDef style="width: 20%"> Nombre </th>
+            <ng-container matColumnDef="Nombre" >
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
                     <td mat-cell *matCellDef="let menu"> {{menu.Nombre}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="Carta" sticky>
-                    <th mat-header-cell *matHeaderCellDef style="width: 20%"> Carta </th>
+            <ng-container matColumnDef="Carta">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Carta </th>
                     <td mat-cell *matCellDef="let menu"> {{menu.Carta.Nombre}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="Clasificacion" sticky>
-                <th mat-header-cell *matHeaderCellDef style="width: 20%"> Clasificacion </th>
+            <ng-container matColumnDef="Clasificacion">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Clasificacion </th>
                 <td mat-cell *matCellDef="let menu"> {{menu.Clasificacion.Descripcion}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="Descripcion" sticky>
-                    <th mat-header-cell *matHeaderCellDef style="width: 20%"> Descripcion </th>
+            <ng-container matColumnDef="Descripcion" >
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </th>
                     <td mat-cell *matCellDef="let menu"> {{menu.Descripcion}} </td>
             </ng-container>
             
 
             <ng-container matColumnDef="Accion">
-                <th mat-header-cell *matHeaderCellDef style="width: 10%"></th>
+                <th mat-header-cell *matHeaderCellDef ></th>
                 <td mat-cell *matCellDef="let product">
                     <app-action-menu [urlRedirect]="'Product/ABM'" [parametros]="[product.Id]"></app-action-menu>
                 </td>
@@ -50,7 +50,7 @@
         <br>
         <div>
             <div class="row">
-                <div class="col-sm-12 col-md-12 form-group">
+                <div class="col-sm-12 col-md-12 form-group" style="text-align: right;">
                     <button type="button" mat-raised-button color="primary" (click)="newProduct()">Nuevo Producto</button>
                 </div>
             </div>
