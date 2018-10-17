@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TableServiceService } from './table-service.service';
+import { FirestoreTableService } from './table-service.service';
 
 describe('TableServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: TableServiceService = TestBed.get(TableServiceService);
+    const service: FirestoreTableService = TestBed.get(FirestoreTableService);
     expect(service).toBeTruthy();
   });
 });

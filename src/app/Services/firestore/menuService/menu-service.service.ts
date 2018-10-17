@@ -4,28 +4,28 @@ import { AngularFirestore } from 'angularfire2/firestore';
 @Injectable({
   providedIn: 'root'
 })
-export class FirestoreService {
+export class FirestoreMenuService {
   constructor(
     private firestore: AngularFirestore
   ) { }
 
   public CreateMenu(data: { Descripcion: string, Nombre:string})  {
-    return this.firestore.collection('Menu').add(data);
+    return this.firestore.collection('Carta').add(data);
   }
 
   public GetMenu(id: string) {
-    return this.firestore.collection('Menu').doc(id).snapshotChanges();;
+    return this.firestore.collection('Carta').doc(id).snapshotChanges();;
   }
 
   public GetMenues() {
-    return this.firestore.collection('Menu').snapshotChanges();
+    return this.firestore.collection('Carta').snapshotChanges();
   }
 
   public UpdateMenu(id: string, data: any) {
-    return this.firestore.collection('Menu').doc(id).set(data);
+    return this.firestore.collection('Carta').doc(id).set(data);
   }
 
   public deleteMenu(id: string) {
-    return this.firestore.collection('Menu').doc(id).delete();
+    return this.firestore.collection('Carta').doc(id).delete();
   }
 }

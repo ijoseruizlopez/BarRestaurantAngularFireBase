@@ -5,17 +5,20 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 
-.DivCenter{
-    float: none;
+.DivCenterTable{
     margin: 0 auto;
-    width: 100%;
-    height: 100%;
-    padding-top: 2%;
-    padding-left: 10%;
-    background-color:gainsboro;
+    text-align: -webkit-center;
+    width: 80%;
+    
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-  }
+.DivCenter{
+    margin: 0 auto;
+    text-align: -webkit-center;
+    width: 60%;
+}
+
+.LabelError{
+    text-align: left; 
+    color:red;
+}

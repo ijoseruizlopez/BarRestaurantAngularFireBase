@@ -4,7 +4,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 @Injectable({
   providedIn: 'root'
 })
-export class FirestoreService {
+export class FirestoreOrderService {
   constructor(
     private firestore: AngularFirestore
   ) { }

@@ -2,7 +2,7 @@
     <form [formGroup]="menuForm">
   
         <div class="panel-heading">
-            <strong>ABM Carta</strong>
+            <strong>ABM Productos</strong>
         </div>
   
         <fieldset [disabled]="!editable">
@@ -15,14 +15,19 @@
                                 <div class="row">
                                     <div class="col-md-6 form-group fancy-form2">
                                         <mat-form-field class="example-full-width">
-                                            <input formControlName="Carta" name="Carta" matInput placeholder="Carta">
+                                            <input formControlName="Nombre" name="Nombre" matInput placeholder="Nombre de Carta">
+                                        </mat-form-field>
+                                        <div *ngIf="submitted &&f.Nombre.errors" class="LabelError">
+                                            <div *ngIf="submitted && f.Nombre.errors.required">El Nombre de la carta es requerido</div>  
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2">
+                                        <mat-form-field class="example-full-width">
+                                            <input formControlName="Descripcion" name="Descripcion" matInput placeholder="Descripcion">
                                         </mat-form-field>
                                     </div>
+                                    
                                 </div>
-
-                                <p>
-                                    <i>(*) - Campos requeridos</i>
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -33,12 +38,12 @@
   
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-sm-6 col-md-6 form-group">
-                            <button type="button" mat-raised-button color="primary" (click)="Save()">Guardar</button>
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="text-align: left;">
+                            <button type="button" mat-raised-button color="primary" (click)="save()">Guardar</button>
                         </div>
   
-                        <div class="col-sm-6 col-md-6 form-group">
-                            <button type="button" mat-raised-button color="warn" (click)="Cancel()">cancelar</button>
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="text-align: right;">
+                            <button type="button" mat-raised-button color="warn" (click)="cancel()">cancelar</button>
                         </div>
                     </div>
   
@@ -56,11 +61,11 @@
     <div class="panel panel-default" *ngIf="!editable">
         <div class="panel-body">
             <div class="row">
-                <div class="col-sm-6 col-md-6 form-group">
-                    <button type="button" mat-raised-button color="warn" (click)="Delete()" *ngIf="action=='B' && !actionComplete">Eliminar</button>
+                <div class="col-sm-3 col-md-3 col-xs-3 form-group" style="text-align: left;">
+                    <button type="button" mat-raised-button color="warn" (click)="delete()" *ngIf="action=='B' && !actionComplete">Eliminar</button>
                 </div>
-                <div class="col-sm-6 col-md-6 form-group">
-                    <button type="button" mat-raised-button color="warn" (click)="Cancel()">Regresar</button>
+                <div class="col-sm-3 col-md-3 col-xs-3 form-group" style="text-align: right;">
+                    <button type="button" mat-raised-button color="warn" (click)="cancel()">Regresar</button>
                 </div>
             </div>
         </div>

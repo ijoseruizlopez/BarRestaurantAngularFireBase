@@ -2,7 +2,7 @@
     <form [formGroup]="productForm">
   
         <div class="panel-heading">
-            <strong>ABM Carta</strong>
+            <strong>ABM Productos</strong>
         </div>
   
         <fieldset [disabled]="!editable">
@@ -13,16 +13,66 @@
                             <div class="panel-body">
   
                                 <div class="row">
-                                    <div class="col-md-6 form-group fancy-form2">
+                                    <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2">
                                         <mat-form-field class="example-full-width">
-                                            <input formControlName="Nombre" name="Nombre" matInput placeholder="Nombre Carta">
+                                            <input formControlName="Nombre" name="Nombre" matInput placeholder="Nombre">
+                                        </mat-form-field>
+                                        <div *ngIf="submitted &&f.Nombre.errors" class="LabelError">
+                                            <div *ngIf="submitted && f.Nombre.errors.required">El Nombre del producto es requerido</div>  
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2">
+                                        <mat-form-field class="example-full-width">
+                                            <input formControlName="Descripcion" name="Descripcion" matInput placeholder="Descripcion">
                                         </mat-form-field>
                                     </div>
                                 </div>
 
-                                <p>
-                                    <i>(*) - Campos requeridos</i>
-                                </p>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-select placeholder="Selecione el Tipo" [disabled]="!editable" name="Tipo"
+                                                formControlName="Tipo" [compareWith]="compareObjects">
+                                                <mat-option *ngFor="let type of types" [value]="type">
+                                                    {{type.Descripcion}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        
+                                        <div *ngIf="submitted &&f.Tipo.value.Id==-1" class="LabelError">
+                                            <div *ngIf="submitted && f.Tipo.value.Id==-1">El Tipo es requerido</div>  
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-select placeholder="Selecione una Clasificacion" [disabled]="!editable" name="Clasificacion"
+                                                formControlName="Clasificacion" [compareWith]="compareObjects">
+                                                <mat-option *ngFor="let clasificacion of classifications" [value]="clasificacion">
+                                                    {{clasificacion.Descripcion}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <div *ngIf="submitted && f.Clasificacion.value.Id==-1" class="LabelError">
+                                            <div *ngIf="submitted && f.Clasificacion.value.Id==-1">La Clasificacion es requerida</div>  
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-select placeholder="Selecione una Carta" [disabled]="!editable" name="Carta"
+                                                formControlName="Carta" [compareWith]="compareObjects">
+                                                <mat-option *ngFor="let menu of menues" [value]="menu">
+                                                    {{menu.Nombre}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <div *ngIf="submitted &&f.Carta.value.Id==-1" class="LabelError">
+                                            <div *ngIf="submitted && f.Carta.value.Id==-1">La Carta es requerida</div>  
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -33,12 +83,12 @@
   
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-sm-6 col-md-6 form-group">
-                            <button type="button" mat-raised-button color="primary" (click)="Save()">Guardar</button>
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="text-align: left;">
+                            <button type="button" mat-raised-button color="primary" (click)="save()">Guardar</button>
                         </div>
   
-                        <div class="col-sm-6 col-md-6 form-group">
-                            <button type="button" mat-raised-button color="warn" (click)="Cancel()">cancelar</button>
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="text-align: right;">
+                            <button type="button" mat-raised-button color="warn" (click)="cancel()">cancelar</button>
                         </div>
                     </div>
   
@@ -56,11 +106,11 @@
     <div class="panel panel-default" *ngIf="!editable">
         <div class="panel-body">
             <div class="row">
-                <div class="col-sm-6 col-md-6 form-group">
-                    <button type="button" mat-raised-button color="warn" (click)="Delete()" *ngIf="action=='B' && !actionComplete">Eliminar</button>
+                <div class="col-sm-3 col-md-3 col-xs-3 form-group" style="text-align: left;">
+                    <button type="button" mat-raised-button color="warn" (click)="delete()" *ngIf="action=='B' && !actionComplete">Eliminar</button>
                 </div>
-                <div class="col-sm-6 col-md-6 form-group">
-                    <button type="button" mat-raised-button color="warn" (click)="Cancel()">Regresar</button>
+                <div class="col-sm-3 col-md-3 col-xs-3 form-group" style="text-align: right;">
+                    <button type="button" mat-raised-button color="warn" (click)="cancel()">Regresar</button>
                 </div>
             </div>
         </div>
