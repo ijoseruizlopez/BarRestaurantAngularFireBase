@@ -2,7 +2,7 @@
     <form [formGroup]="menuForm">
   
         <div class="panel-heading">
-            <strong>ABM Productos</strong>
+            <strong>ABM Cartas</strong>
         </div>
   
         <fieldset [disabled]="!editable">
@@ -17,7 +17,7 @@
                                         <mat-form-field class="example-full-width">
                                             <input formControlName="Nombre" name="Nombre" matInput placeholder="Nombre de Carta">
                                         </mat-form-field>
-                                        <div *ngIf="submitted &&f.Nombre.errors" class="LabelError">
+                                        <div *ngIf="submitted && f.Nombre.errors" class="LabelError">
                                             <div *ngIf="submitted && f.Nombre.errors.required">El Nombre de la carta es requerido</div>  
                                         </div>
                                     </div>

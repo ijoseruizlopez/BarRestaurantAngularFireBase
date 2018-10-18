@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FirestoreMenuService } from 'src/app/Services/firestore/menuService/menu-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Menu } from '../Interfaces/Menu';
@@ -24,14 +24,16 @@ export class MenuABMComponent implements OnInit {
   //Formulario con la estructura del Json que necesitamos
   public menuForm =  new FormGroup({
     Id: new FormControl(-1),
-    Nombre: new FormControl(''),
-    Descripcion: new FormControl(''),
+    Nombre: new FormControl('', [Validators.required]),
+    Descripcion: new FormControl('',[Validators.required]),
   });
 
   constructor(private router: ActivatedRoute, 
     private route: Router, 
     public firestoreService: FirestoreMenuService, 
     public dialog: MatDialog) { }
+
+  get f() {return this.menuForm.controls; }
 
   ngOnInit() {
 
@@ -65,12 +67,12 @@ export class MenuABMComponent implements OnInit {
   save()
   {
     this.submitted = true;
-    if(this.menuForm.valid) {
-      console.log(this.menuForm.value);
-      this.menu = this.menuForm.value;
 
-      
-      if(this.action=="M")
+    if(this.menuForm.valid) {
+     
+      this.menu = this.menuForm.value;
+  
+       if(this.action=="M")
       {
         this.firestoreService.UpdateMenu(this.id, this.menu).then(() =>{         
           this.actionComplete=true;
