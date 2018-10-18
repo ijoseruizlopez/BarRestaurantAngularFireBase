@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FirestoreTableService } from 'src/app/Services/firestore/tableService/table-service.service';
 import { Table } from '../interfaces/table';
+import { MatDialog } from '@angular/material';
+import { ConfirmationDialogComponent } from 'src/app/Components/Common/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-table-abm',
@@ -26,7 +28,10 @@ export class TableAbmComponent implements OnInit {
   
 
 
-  constructor(private router: ActivatedRoute, private route: Router, public firestoreService: FirestoreTableService) { }
+  constructor(private router: ActivatedRoute, 
+              private route: Router, 
+              public firestoreService: FirestoreTableService,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
 
@@ -84,10 +89,15 @@ export class TableAbmComponent implements OnInit {
 
   delete()
   {
-    this.firestoreService.deleteTable(this.id).then(() => {
-      this.actionComplete=true;
-      this.editable=false;
-    });
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.firestoreService.deleteTable(this.id).then(() => {
+          this.actionComplete=true;
+          this.editable=false;
+        });
+      }
+    })
   }
 
   cancel()

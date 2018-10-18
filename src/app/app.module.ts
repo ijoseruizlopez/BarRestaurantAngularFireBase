@@ -34,6 +34,8 @@ import { WaiterOrdersToCollectComponent } from './Components/Tasks/waiter/waiter
 import { WaiterMainComponent } from './Components/Tasks/waiter/waiter-main/waiter-main.component';
 import { TableAbmComponent } from './Components/ABM/table/table-abm/table-abm.component';
 import { TableGridComponent } from './Components/ABM/table/table-grid/table-grid.component';
+import { MatSortModule, MatDialogModule } from '@angular/material';
+import { ConfirmationDialogComponent } from './Components/Common/confirmation-dialog/confirmation-dialog.component';
 
 const routes: Route[]=[
   {path:'Menu/ABM/:Action/:Id' , component:MenuABMComponent},
@@ -63,8 +65,9 @@ const routes: Route[]=[
     KitchenBoardComponent,
     WaiterOrdersComponent,
     WaiterOrdersToCollectComponent, 
-    WaiterMainComponent, TableAbmComponent, TableGridComponent 
+    WaiterMainComponent, TableAbmComponent, TableGridComponent, ConfirmationDialogComponent 
   ],
+  entryComponents: [ConfirmationDialogComponent],//Para construir componentes dinamicamente
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -72,7 +75,9 @@ const routes: Route[]=[
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes), //Importamos las rutas navegables
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    MatSortModule,
+    MatDialogModule
   ],
   exports : [ReactiveFormsModule],
   providers: [AngularFirestore, FormControlDirective, FormGroupDirective],

@@ -17,27 +17,27 @@
 
             <ng-container matColumnDef="Nombre" >
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
-                    <td mat-cell *matCellDef="let menu"> {{menu.Nombre}} </td>
+                    <td mat-cell *matCellDef="let product"> {{product.Nombre}} </td>
             </ng-container>
 
             <ng-container matColumnDef="Carta">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Carta </th>
-                    <td mat-cell *matCellDef="let menu"> {{menu.Carta.Nombre}} </td>
+                    <td mat-cell *matCellDef="let product"> {{product.Carta.Nombre}} </td>
             </ng-container>
 
             <ng-container matColumnDef="Clasificacion">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Clasificacion </th>
-                <td mat-cell *matCellDef="let menu"> {{menu.Clasificacion.Descripcion}} </td>
+                <td mat-cell *matCellDef="let product"> {{product.Clasificacion.Descripcion}} </td>
             </ng-container>
 
             <ng-container matColumnDef="Descripcion" >
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </th>
-                    <td mat-cell *matCellDef="let menu"> {{menu.Descripcion}} </td>
+                    <td mat-cell *matCellDef="let product"> {{product.Descripcion}} </td>
             </ng-container>
             
 
             <ng-container matColumnDef="Accion">
-                <th mat-header-cell *matHeaderCellDef ></th>
+                <th mat-header-cell *matHeaderCellDef></th>
                 <td mat-cell *matCellDef="let product">
                     <app-action-menu [urlRedirect]="'Product/ABM'" [parametros]="[product.Id]"></app-action-menu>
                 </td>

@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FirestoreMenuService } from 'src/app/Services/firestore/menuService/menu-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Product } from '../../product/Interfaces/Product';
 import { Menu } from '../Interfaces/Menu';
+import { MatDialog } from '@angular/material';
+import { ConfirmationDialogComponent } from 'src/app/Components/Common/confirmation-dialog/confirmation-dialog.component';
+
 
 @Component({
   selector: 'app-menu-abm',
@@ -28,7 +30,8 @@ export class MenuABMComponent implements OnInit {
 
   constructor(private router: ActivatedRoute, 
     private route: Router, 
-    public firestoreService: FirestoreMenuService,) { }
+    public firestoreService: FirestoreMenuService, 
+    public dialog: MatDialog) { }
 
   ngOnInit() {
 
@@ -86,10 +89,15 @@ export class MenuABMComponent implements OnInit {
 
   delete()
   {
-    this.firestoreService.deleteMenu(this.id).then(() => {
-      this.actionComplete=true;
-      this.editable=false;
-    });
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.firestoreService.deleteMenu(this.id).then(() => {
+          this.actionComplete=true;
+          this.editable=false;
+        });
+      }
+    })
   }
 
   cancel()

@@ -31,19 +31,16 @@
                 </div>
       
                 <div class="panel panel-default" *ngIf="editable">
-      
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-3 col-xs-3" style="text-align: left;">
-                                <button type="button" mat-raised-button color="primary" (click)="save()">Guardar</button>
+  
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: left;">
+                                    <button class="btn-space" type="button" mat-raised-button color="primary" (click)="save()">Guardar</button>
+                                    <button class="btn-space" type="button" mat-raised-button color="warn" (click)="cancel()">cancelar</button>
+                                </div>
                             </div>
-      
-                            <div class="col-md-3 col-sm-3 col-xs-3" style="text-align: right;">
-                                <button type="button" mat-raised-button color="warn" (click)="cancel()">cancelar</button>
-                            </div>
+          
                         </div>
-      
-                    </div>
                 </div>
             </fieldset>
         </form>
@@ -55,15 +52,13 @@
         </div>
       
         <div class="panel panel-default" *ngIf="!editable">
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-sm-3 col-md-3 col-xs-3 form-group" style="text-align: left;">
-                        <button type="button" mat-raised-button color="warn" (click)="delete()" *ngIf="action=='B' && !actionComplete">Eliminar</button>
-                    </div>
-                    <div class="col-sm-3 col-md-3 col-xs-3 form-group" style="text-align: right;">
-                        <button type="button" mat-raised-button color="warn" (click)="cancel()">Regresar</button>
-                    </div>
+                <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: left;">
+                                <button class="btn-space" type="button" mat-raised-button color="primary" (click)="delete()" *ngIf="action=='B' && !actionComplete">Eliminar</button>
+                                <button class="btn-space" type="button" mat-raised-button color="warn" (click)="cancel()">Regresar</button>
+                            </div>
+                        </div>
                 </div>
-            </div>
         </div>
       </div>

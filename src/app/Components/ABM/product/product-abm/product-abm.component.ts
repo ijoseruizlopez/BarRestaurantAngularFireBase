@@ -4,6 +4,8 @@ import { Product } from '../Interfaces/Product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirestoreProductService } from 'src/app/Services/firestore/productService/product-service.service';
 import { FirestoreMenuService } from 'src/app/Services/firestore/menuService/menu-service.service';
+import { MatDialog } from '@angular/material';
+import { ConfirmationDialogComponent } from 'src/app/Components/Common/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-product-abm',
@@ -37,7 +39,8 @@ export class ProductABMComponent implements OnInit {
   constructor(private router: ActivatedRoute, 
     private route: Router, 
     public firestoreService: FirestoreProductService,
-    public firestoreMenuService: FirestoreMenuService) { }
+    public firestoreMenuService: FirestoreMenuService,
+    public dialog: MatDialog) { }
 
   get f() {return this.productForm.controls; }
 
@@ -143,10 +146,15 @@ export class ProductABMComponent implements OnInit {
 
   delete()
   {
-    this.firestoreService.deleteProduct(this.id).then(() => {
-      this.actionComplete=true;
-      this.editable=false;
-    });
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+          this.firestoreService.deleteProduct(this.id).then(() => {
+          this.actionComplete=true;
+          this.editable=false;
+        });
+      }
+    })
   }
 
   cancel()

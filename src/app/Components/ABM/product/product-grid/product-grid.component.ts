@@ -12,8 +12,8 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class ProductGridComponent implements OnInit {
 
-  displayedColumns: string[] = ['Icon', 'Carta','Clasificacion','Descripcion', 'Accion'];
-  public dataSource =new MatTableDataSource([]);
+  displayedColumns: string[] = ['Icon', 'Nombre','Carta','Clasificacion','Descripcion', 'Accion'];
+  public dataSource =new MatTableDataSource();
   @ViewChild(MatSort) sort: MatSort;
   
   constructor(private router: Router, private firestoreService: FirestoreProductService) { }
@@ -38,6 +38,7 @@ export class ProductGridComponent implements OnInit {
         var data = productData.payload.doc.data();
         dataSourceAux.push({
           Id: productData.payload.doc.id,
+          Nombre: data.Nombre,
           Carta: data.Carta==null ?  "": data.Carta,
           Clasificacion: data.Clasificacion==null ? "": data.Clasificacion,
           Descripcion: data.Descripcion

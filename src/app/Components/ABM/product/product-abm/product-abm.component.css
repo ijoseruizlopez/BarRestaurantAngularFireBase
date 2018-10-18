@@ -11,4 +11,7 @@
     max-width: 500px;
     width: 100%;
   }
-  
+
+  .btn-space {
+    margin-right: 10%;
+  }
