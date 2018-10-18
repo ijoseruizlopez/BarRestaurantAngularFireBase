@@ -70,7 +70,6 @@ export class WaiterOrdersComponent implements OnInit {
   }
 
   getSearch() {
-    console.log(this.clasificationSearch);
     this.productsSearch = [];
 
     this.products.forEach(product => {
@@ -86,8 +85,8 @@ export class WaiterOrdersComponent implements OnInit {
         }
         else {
           if (this.idCarta == 0 && this.idClasificacion == 0 && this.descripcionProducto != "") {
-            if (this.descripcionProducto.includes(product.Nombre)) {
-              this.productsSearch.push(product);
+            if (product.Nombre.toUpperCase().indexOf(this.descripcionProducto.toUpperCase())!= -1) {
+                this.productsSearch.push(product);
             }
           }
           else {
