@@ -1,3 +1,70 @@
-<p>
-  waiter-orders works!
-</p>
+<div>
+    <div class="tabs white nomargin-top">
+        <div class="tab-content">
+            <div id="Principal" class="tab-pane active">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
+                                <mat-form-field class="example-full-width">
+                                  
+                                    <mat-select placeholder="Selecione una Carta" name="Carta" [(ngModel)]="idCarta">
+                                        <mat-option *ngFor="let menu of menues" [value]="menu.Id">
+                                            {{menu.Nombre}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
+                                <mat-form-field class="example-full-width">
+                                  
+                                    <mat-select placeholder="Selecione una Clasificacion" name="Carta"  [(ngModel)]="idClasificacion">
+                                        <mat-option *ngFor="let clasification of classifications" [value]="clasification.Id">
+                                            {{clasification.Descripcion}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
+                                    
+                                <mat-form-field class="example-full-width" style="width:40%"> 
+                                <input name="Nombre" matInput placeholder="Ingrese descripcion del Producto" [(ngModel)]="descripcionProducto">
+                                        
+                                </mat-form-field>
+                                <button style="margin-left: 5%;" type="button" mat-raised-button color="warn" (click)="getSearch()">Buscar</button>
+
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <div>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let clasification of clasificationSearch">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{clasification.Descripcion}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let producto of productsSearch">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{producto.Nombre}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+      
+            </mat-expansion-panel>
+          </mat-accordion> 
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

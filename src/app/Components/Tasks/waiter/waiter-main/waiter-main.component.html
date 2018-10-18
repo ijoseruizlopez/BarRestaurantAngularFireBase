@@ -1,29 +1,32 @@
-
-  <div class="tabs nomargin-top" v-if="ArticuloSelection==null">
-      <ul class="nav nav-tabs">
-          <li class="active">
-              <a href="#Pedidos" data-toggle="tab">Pedidos</a>
-          </li>
-            <li id="" class="active">
-              <a href="#PedidosEnCurso" data-toggle="tab">Pedidos</a>
-          </li>
-          <li id="CobrosARealizar" class="active">
-              <a href="#PedidosEnCurso" data-toggle="tab">Cobros a Realizar</a>
-          </li>
-      </ul>
-
-      <div class="tab-content">
-
-          <div id="Pedidos" class="tab-pane active">
-                <app-waiter-orders></app-waiter-orders>
-          </div>
-
-          <div id="PedidosEnCurso" class="tab-pane">
-                <app-waiter-board></app-waiter-board>
-          </div>
-  
-          <div id="CobrosARealizar" class="tab-pane">
-                <app-waiter-orders-to-collect></app-waiter-orders-to-collect>
-          </div>
-      </div>
-  </div>
+<div class="DivCenterTable example-container">
+        <div class="tabs nomargin-top">
+                <ul class="nav  nav-tabs tabs-primary">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#Pedidos" data-toggle="tab">Pedidos</a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#PedidosEnCurso" data-toggle="tab">Pedidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#PedidosEnCurso" data-toggle="tab">Cobros a Realizar</a>
+                    </li>
+                </ul>
+          
+                <div class="tab-content">
+          
+                    <div id="Pedidos" class="tab-pane active">
+                          <app-waiter-orders></app-waiter-orders>
+                    </div>
+          
+                    <div id="PedidosEnCurso" class="tab-pane">
+                          <app-waiter-board></app-waiter-board>
+                    </div>
+            
+                    <div id="CobrosARealizar" class="tab-pane">
+                          <app-waiter-orders-to-collect></app-waiter-orders-to-collect>
+                    </div>
+                </div>
+            </div>
+            
+</div>
+ 
