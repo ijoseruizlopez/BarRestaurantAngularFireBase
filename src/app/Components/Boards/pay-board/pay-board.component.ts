@@ -7,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PayBoardComponent implements OnInit {
 
-  displayedColumns: string[] = ['Id'];
+  displayedColumns: string[] = ['Icon', 'Numero','Accion'];
   public dataSource =[];
+
 
   constructor() { }
 
@@ -18,5 +19,8 @@ export class PayBoardComponent implements OnInit {
   newMenu(){
     
   }
-
+  closeBox()
+  {
+    
+  }
 }

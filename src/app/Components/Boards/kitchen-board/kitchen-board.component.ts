@@ -7,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KitchenBoardComponent implements OnInit {
 
-  displayedColumns: string[] = ['Id'];
+  displayedColumns: string[] = ['Icon', 'Numero','Accion'];
   public dataSource =[];
+
 
   constructor() { }
 

@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WaiterOrdersToCollectComponent implements OnInit {
 
+  displayedColumns: string[] = ['Icon', 'Numero','Accion'];
+  public dataSource =[];
+  
   constructor() { }
 
   ngOnInit() {
