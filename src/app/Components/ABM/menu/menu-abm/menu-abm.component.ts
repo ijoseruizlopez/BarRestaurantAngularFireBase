@@ -92,6 +92,8 @@ export class MenuABMComponent implements OnInit {
   delete()
   {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+    dialogRef.componentInstance.title="Esta a punto de realizar una Eliminacion";
+    dialogRef.componentInstance.description="Tenga en cuenta que la eliminacion es permanente";
     dialogRef.afterClosed().subscribe(result => {
       if(result){
         this.firestoreService.deleteMenu(this.id).then(() => {

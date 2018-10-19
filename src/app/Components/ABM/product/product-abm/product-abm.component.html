@@ -1,29 +1,31 @@
 <div class="DivCenter">
     <form [formGroup]="productForm">
-  
+
         <div class="panel-heading">
             <strong>ABM Productos</strong>
         </div>
-  
+
         <fieldset [disabled]="!editable">
             <div class="tabs white nomargin-top">
                 <div class="tab-content">
                     <div id="Principal" class="tab-pane active">
                         <div class="panel panel-default">
                             <div class="panel-body">
-  
+
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2">
                                         <mat-form-field class="example-full-width">
                                             <input formControlName="Nombre" name="Nombre" matInput placeholder="Nombre">
                                         </mat-form-field>
                                         <div *ngIf="submitted &&f.Nombre.errors" class="LabelError">
-                                            <div *ngIf="submitted && f.Nombre.errors.required">El Nombre del producto es requerido</div>  
+                                            <div *ngIf="submitted && f.Nombre.errors.required">El Nombre del producto
+                                                es requerido</div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2">
                                         <mat-form-field class="example-full-width">
-                                            <input formControlName="Descripcion" name="Descripcion" matInput placeholder="Descripcion">
+                                            <input formControlName="Descripcion" name="Descripcion" matInput
+                                                placeholder="Descripcion">
                                         </mat-form-field>
                                     </div>
                                 </div>
@@ -38,22 +40,23 @@
                                                 </mat-option>
                                             </mat-select>
                                         </mat-form-field>
-                                        
+
                                         <div *ngIf="submitted &&f.Tipo.value.Id==-1" class="LabelError">
-                                            <div *ngIf="submitted && f.Tipo.value.Id==-1">El Tipo es requerido</div>  
+                                            <div *ngIf="submitted && f.Tipo.value.Id==-1">El Tipo es requerido</div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2">
                                         <mat-form-field class="example-full-width">
-                                            <mat-select placeholder="Selecione una Clasificacion" [disabled]="!editable" name="Clasificacion"
-                                                formControlName="Clasificacion" [compareWith]="compareObjects">
+                                            <mat-select placeholder="Selecione una Clasificacion" [disabled]="!editable"
+                                                name="Clasificacion" formControlName="Clasificacion" [compareWith]="compareObjects">
                                                 <mat-option *ngFor="let clasificacion of classifications" [value]="clasificacion">
                                                     {{clasificacion.Descripcion}}
                                                 </mat-option>
                                             </mat-select>
                                         </mat-form-field>
                                         <div *ngIf="submitted && f.Clasificacion.value.Id==-1" class="LabelError">
-                                            <div *ngIf="submitted && f.Clasificacion.value.Id==-1">La Clasificacion es requerida</div>  
+                                            <div *ngIf="submitted && f.Clasificacion.value.Id==-1">La Clasificacion es
+                                                requerida</div>
                                         </div>
                                     </div>
                                 </div>
@@ -69,7 +72,17 @@
                                             </mat-select>
                                         </mat-form-field>
                                         <div *ngIf="submitted &&f.Carta.value.Id==-1" class="LabelError">
-                                            <div *ngIf="submitted && f.Carta.value.Id==-1">La Carta es requerida</div>  
+                                            <div *ngIf="submitted && f.Carta.value.Id==-1">La Carta es requerida</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2">
+                                        <mat-form-field class="example-full-width">
+                                            <input formControlName="Precio" name="Precio" matInput placeholder="Ingrese el Precio">
+                                        </mat-form-field>
+                                        <div *ngIf="submitted &&f.Precio.value.Id==-1" class="LabelError">
+                                            <div *ngIf="submitted && f.Precio.value.Id==-1">El Precio es requerido</div>
                                         </div>
                                     </div>
                                 </div>
@@ -78,9 +91,9 @@
                     </div>
                 </div>
             </div>
-  
+
             <div class="panel panel-default" *ngIf="editable">
-  
+
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: left;">
@@ -88,26 +101,26 @@
                             <button class="btn-space" type="button" mat-raised-button color="warn" (click)="cancel()">cancelar</button>
                         </div>
                     </div>
-  
+
                 </div>
             </div>
         </fieldset>
     </form>
-  
+
     <div class="panel panel-default" *ngIf="actionComplete">
         <div class="alert alert-success" role="alert">
             La acción fue completada
         </div>
     </div>
-  
+
     <div class="panel panel-default" *ngIf="!editable">
         <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: left;">
-                        <button class="btn-space" type="button" mat-raised-button color="primary" (click)="delete()" *ngIf="action=='B' && !actionComplete">Eliminar</button>
-                        <button class="btn-space" type="button" mat-raised-button color="warn" (click)="cancel()">Regresar</button>
-                    </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: left;">
+                    <button class="btn-space" type="button" mat-raised-button color="primary" (click)="delete()" *ngIf="action=='B' && !actionComplete">Eliminar</button>
+                    <button class="btn-space" type="button" mat-raised-button color="warn" (click)="cancel()">Regresar</button>
                 </div>
+            </div>
         </div>
     </div>
-  </div>
+</div>

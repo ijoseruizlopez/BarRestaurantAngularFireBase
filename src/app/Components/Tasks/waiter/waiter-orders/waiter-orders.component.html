@@ -7,7 +7,7 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
                                 <mat-form-field class="example-full-width">
-                                  
+
                                     <mat-select placeholder="Selecione una Carta" name="Carta" [(ngModel)]="idCarta">
                                         <mat-option *ngFor="let menu of menues" [value]="menu.Id">
                                             {{menu.Nombre}}
@@ -19,8 +19,8 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
                                 <mat-form-field class="example-full-width">
-                                  
-                                    <mat-select placeholder="Selecione una Clasificacion" name="Carta"  [(ngModel)]="idClasificacion">
+
+                                    <mat-select placeholder="Selecione una Clasificacion" name="Carta" [(ngModel)]="idClasificacion">
                                         <mat-option *ngFor="let clasification of classifications" [value]="clasification.Id">
                                             {{clasification.Descripcion}}
                                         </mat-option>
@@ -30,40 +30,98 @@
                         </div>
 
                         <div class="row">
-                                <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
-                                    
-                                <mat-form-field class="example-full-width" style="width:40%"> 
-                                <input name="Nombre" matInput placeholder="Ingrese descripcion del Producto" [(ngModel)]="descripcionProducto">
-                                        
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
+
+                                <mat-form-field class="example-full-width" style="width:40%">
+                                    <input name="Nombre" matInput placeholder="Ingrese descripcion del Producto"
+                                        [(ngModel)]="descripcionProducto">
+
                                 </mat-form-field>
                                 <button style="margin-left: 5%;" type="button" mat-raised-button color="warn" (click)="getSearch()">Buscar</button>
 
-                                </div>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-  <div>
-    <mat-accordion>
-      <mat-expansion-panel *ngFor="let clasification of clasificationSearch">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{clasification.Descripcion}}
-          </mat-panel-title>
-        </mat-expansion-panel-header>
+    <div>
         <mat-accordion>
-            <mat-expansion-panel *ngFor="let producto of productsSearch">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  {{producto.Nombre}}
-                </mat-panel-title>
-              </mat-expansion-panel-header>
+            <mat-expansion-panel *ngFor="let clasification of clasificationSearch">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{clasification.group[0].Clasificacion.Descripcion}}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-accordion>
+                    <mat-expansion-panel *ngFor="let producto of clasification.group">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{producto.Nombre}}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2">
+                                    <img src="http://placehold.it/350x250" class="md-card-image" alt="image caption"/>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2" style="text-align: left;">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
+                                            <label>Descripcion :</label>{{producto.Descripcion}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
+                                            <label>Precio :</label>{{producto.Precio}}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
+                                            <mat-form-field class="example-full-width" style="width:50%">
+                                                <input name="descripcionPedido" matInput placeholder="Ingrese descripcion del Pedido"
+                                                    [(ngModel)]="descripcionPedido">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
+                                            <button mat-mini-fab color="primary" (click)="removeProduct(producto.Id)">-</button>
+                                            Cantidad : {{countOrder}}
+                                            <button mat-mini-fab color="warn" (click)="addProduct(producto.Id)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </mat-expansion-panel>
+
+                </mat-accordion>
             </mat-expansion-panel>
-          </mat-accordion> 
-      </mat-expansion-panel>
-    </mat-accordion>
-  </div>
+        </mat-accordion>
+
+        <br>
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
+                    <mat-form-field style="width: 40%;">
+                        <mat-select placeholder="Selecione una Mesa" name="Carta" [(ngModel)]="idMesa">
+                            <mat-option *ngFor="let table of tables" [value]="table.Id">
+                                {{table.Numero}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <button style="margin-left: 2%;" type="button" mat-raised-button color="primary" (click)="confirmar()">Confirmar</button>
+                    <button style="margin-left: 2%;" type="button" mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>

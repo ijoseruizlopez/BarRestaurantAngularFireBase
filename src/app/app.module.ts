@@ -65,7 +65,7 @@ const routes: Route[]=[
     KitchenBoardComponent,
     WaiterOrdersComponent,
     WaiterOrdersToCollectComponent, 
-    WaiterMainComponent, TableAbmComponent, TableGridComponent, ConfirmationDialogComponent 
+    WaiterMainComponent, TableAbmComponent, TableGridComponent, ConfirmationDialogComponent, 
   ],
   entryComponents: [ConfirmationDialogComponent],//Para construir componentes dinamicamente
   imports: [

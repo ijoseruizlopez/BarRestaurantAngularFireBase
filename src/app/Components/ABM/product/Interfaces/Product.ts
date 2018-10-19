@@ -4,5 +4,6 @@ export interface Product {
     Clasificacion:Object, 
     Descripcion:string,
     Nombre:string, 
-    Tipo:Object
+    Tipo:Object,
+    Precio:number
   }

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmationDialogComponent implements OnInit {
 
+  public title:string="";
+  public description:string="";
   constructor() { }
 
   ngOnInit() {

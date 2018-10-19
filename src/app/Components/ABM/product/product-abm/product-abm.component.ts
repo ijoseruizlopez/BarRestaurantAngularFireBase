@@ -32,7 +32,8 @@ export class ProductABMComponent implements OnInit {
     Descripcion: new FormControl(''),
     Carta:new FormControl({Id:-1, Descripcion:""}, [Validators.required]),
     Clasificacion:new FormControl({Id:-1, Descripcion:""}, [Validators.required]),
-    Tipo:new FormControl({Id:-1, Descripcion:""}, [Validators.required])
+    Tipo:new FormControl({Id:-1, Descripcion:""}, [Validators.required]),
+    Precio:new FormControl(-1, [Validators.required])
   });
   
 
@@ -114,6 +115,7 @@ export class ProductABMComponent implements OnInit {
         Carta : data.Carta==null?  {Id:-1, Descripcion:""}: data.Carta,
         Clasificacion : data.Clasificacion==null?  {Id:-1, Descripcion:""}: data.Clasificacion,
         Tipo : data.Tipo==null?  {Id:-1, Descripcion:""}: data.Tipo,
+        Precio : data.Precio==null?  0: data.Precio,
       });
       editSubscribe.unsubscribe();
     });
@@ -147,6 +149,8 @@ export class ProductABMComponent implements OnInit {
   delete()
   {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+    dialogRef.componentInstance.title="Esta a punto de realizar una Eliminacion";
+    dialogRef.componentInstance.description="Tenga en cuenta que la eliminacion es permanente";
     dialogRef.afterClosed().subscribe(result => {
       if(result){
           this.firestoreService.deleteProduct(this.id).then(() => {

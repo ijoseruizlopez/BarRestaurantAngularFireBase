@@ -9,7 +9,7 @@ export class FirestoreProductService {
     private firestore: AngularFirestore
   ) { }
 
-  public CreateProduct(data: { Carta: Object, Clasificacion:Object, Descripcion:string, Nombre:string, Tipo:Object}) {
+  public CreateProduct(data: { Carta: Object, Clasificacion:Object, Descripcion:string, Nombre:string, Tipo:Object, Precio:number}) {
     return this.firestore.collection('Producto').add(data);
   }
 
