@@ -8,14 +8,19 @@
 .DivCenterTable{
     margin: 0 auto;
     text-align: -webkit-center;
-    width: 80%;
-    
+    width: 90%;
+}
+
+.DivCenterFull{
+    margin: 0 auto;
+    text-align: -webkit-center;
+    width: 100%;
 }
 
 .DivCenter{
     margin: 0 auto;
     text-align: -webkit-center;
-    width: 60%;
+    width: 90%;
 }
 
 .LabelError{

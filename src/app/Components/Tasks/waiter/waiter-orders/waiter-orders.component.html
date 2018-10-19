@@ -32,13 +32,17 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
 
-                                <mat-form-field class="example-full-width" style="width:40%">
+                                <mat-form-field class="example-full-width" style="width:80%">
                                     <input name="Nombre" matInput placeholder="Ingrese descripcion del Producto"
                                         [(ngModel)]="descripcionProducto">
 
                                 </mat-form-field>
-                                <button style="margin-left: 5%;" type="button" mat-raised-button color="warn" (click)="getSearch()">Buscar</button>
+                            </div>
+                        </div>
 
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
+                                <button style="margin-left: 5%;" type="button" mat-raised-button color="warn" (click)="getSearch()">Buscar</button>
                             </div>
                         </div>
                     </div>
@@ -65,7 +69,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2">
-                                    <img src="http://placehold.it/350x250" class="md-card-image" alt="image caption"/>
+                                    <img class="responsive" src="http://placehold.it/350x250"/>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6 form-group fancy-form2" style="text-align: left;">
                                     <div class="row">
@@ -81,19 +85,26 @@
 
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
-                                            <mat-form-field class="example-full-width" style="width:50%">
+                                            <mat-form-field class="example-full-width" style="width:100%">
                                                 <input name="descripcionPedido" matInput placeholder="Ingrese descripcion del Pedido"
                                                     [(ngModel)]="descripcionPedido">
                                             </mat-form-field>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 form-group fancy-form2">
+
+                                        <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                            <br>
+                                            <label>Sub total :</label> $ {{producto.Precio*countOrder}}
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
                                             <button mat-mini-fab color="primary" (click)="removeProduct(producto.Id)">-</button>
                                             Cantidad : {{countOrder}}
                                             <button mat-mini-fab color="warn" (click)="addProduct(producto.Id)">+</button>
                                         </div>
+
                                     </div>
+
                                 </div>
 
                             </div>

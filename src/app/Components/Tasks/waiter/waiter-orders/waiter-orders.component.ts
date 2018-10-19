@@ -145,9 +145,8 @@ export class WaiterOrdersComponent implements OnInit {
                     }
                   }
                   else {
-                    if (this.idCarta == 0 && this.idClasificacion != 0 && this.descripcionProducto != "") {
-                      if (product.Clasificacion.Id == this.idClasificacion &&
-                        product.Carta.Id == this.idCarta) {
+                    if (this.idCarta != 0 && this.idClasificacion == 0 && this.descripcionProducto == "") {
+                      if ( product.Carta.Id == this.idCarta) {
                         this.productsSearch.push(product);
                       }
                     }
@@ -205,6 +204,10 @@ export class WaiterOrdersComponent implements OnInit {
 
       }
     })
+  }
+
+  cancelar(){
+    
   }
   
 }

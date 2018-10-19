@@ -15,4 +15,8 @@ export class PayBoardComponent implements OnInit {
   ngOnInit() {
   }
 
+  newMenu(){
+    
+  }
+
 }
